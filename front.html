@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Nutriweb</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/styles.css">
+
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <a href="#" class="navbar-brand">Nutriweb</a>
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse navHeaderCollapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a>
+                    </li>
+                    <li><a href="Login.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Nutriweb
+                    </a>
+                </li>
+                <li data-toggle="collapse" data-target="#comidas" class="collapsed">
+                    <a href="#">Planificar comidas <span class="caret"></span></a>
+                </li>
+                <ul id="comidas" class="collapse list-unstyled">
+                    <li><a href="#tab_a" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Desayuno</a>
+                    </li>
+                    <li><a href="#tab_b" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Almuerzo</a>
+                    </li>
+                    <li><a href="#tab_c" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Merienda</a>
+                    </li>
+                    <li><a href="#tab_d" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Cena</a>
+                </ul>
+                <li >
+                    <a href="#">Recetas</a>
+                </li>
+                <li >
+                    <a href="#">Cuenta</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>
+
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="tab-content">
+                            <div class="tab-pane" id="tab_a">
+                                <h1>Desayuno</h1>
+                                <p>Por favor seleccione alguna de las siguientes recetas para planificar su comida.</p>
+                                <div class="panel-group" id="accordion-desayuno">
+                                    <div class="panel panel-default" data-toggle="collapse" href="#collapse-desayuno-1" data-parent="#accordion-desayuno">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                        <a>Omelettes</a>
+                                    </h4>
+                                        </div>
+                                        <div id="collapse-desayuno-1" class="panel-collapse collapse">
+                                            <div class="panel-body ">
+                                                <div class="conteiner">
+                                                    <div class="row row-centered">
+                                                        <div class="col-md-3">
+                                                            <img src="img/Desayunos/omelette.png" width="100%">
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="jumbotron">
+                                                                <center>
+                                                                    <h1>Omelettes</h1>
+                                                                    <p>Una excelente receta con huevos. Este omelette lo va a sacar de un apuro, preparando un plato rapidísmo pero igualmente delicioso y nutritivo.</p>
+                                                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                                                                        <spam class="glyphicon glyphicon-plus-sign"></spam> Agregar</button>
+                                                                    <button type="button" class="btn btn-default btn-lg"> Cancelar</button>
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row row-centered">
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Descripcion</a></h3>
+                                                            </center>
+                                                            <p>La receta de este omelette lleva queso Emmental, pero puede sustituírlo por Gruyere o Mar del Palta. Es muy simple de preparar y se va a transformar en su caballito de batalla para aquellas comidas rápidas o un brunch especial. Sazonar con hiervas frescas si lo desea.</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Ingredientes</a></h3>
+                                                            </center>
+                                                            <p>2 cucharadas de aceite de oliva</p>
+                                                            <p>1 cebolla finamente picada</p>
+                                                            <p>8 huevos (2 por persona)</p>
+                                                            <p>1 cucharadita de agua</p>
+                                                            <p>50 gr de queso emmental</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Preparacion</a></h3>
+                                                            </center>
+
+                                                            <p>Calentar el aceite de oliva a una sartén antiadherente a fuego mediano. Rehogar la cebolla por 5 minutos hasta que se ponga tierna.</p>
+                                                            <p>Batir los huevos. Agregar la cucharadita de agua y mezclar bien.</p>
+                                                            <p>Subir el fuego de la sartén. Incorporar los huevos batidos. Con una cuchara de madera, traer los bordes del omelette hacia el centro de la sartén, dejando que se mueva la parte líquida, para que se cocine. Repetir varias veces este proceso hasta que se haya coagulado todo el huevo. Agregar el queso rallado. Bajar el fuego y cocinar por otros 5 a 10 minutos.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default" data-toggle="collapse" href="#collapse-desayuno-2" data-parent="#accordion-desayuno">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                        <a>Waffles</a>
+                                    </h4>
+                                        </div>
+                                        <div id="collapse-desayuno-2" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <div class="conteiner">
+                                                    <div class="row row-centered">
+                                                        <div class="col-md-3">
+                                                            <img src="img/Desayunos/waffles.jpg" width="100%">
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="jumbotron">
+                                                                <center>
+                                                                    <h1>Waffles</h1>
+                                                                    <p>Estos son los mejores waffles del mundo. Ideales para servir para snack o postre, y sobre todo si le agregamos un copete de dulce de leche, quedan todavía mejor.</p>
+                                                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                                                                        <spam class="glyphicon glyphicon-plus-sign"></spam> Agregar</button>
+                                                                    <button type="button" class="btn btn-default btn-lg"> Cancelar</button>
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-centered">
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Descripcion</a></h3>
+                                                            </center>
+                                                            <p>Necesitas una waflera para cocinar estos waffles que son buenísimos para el desayuno o la merienda de la tarde. A los chicos les encantan con miel, crema Chantilly o helado de vainilla.</p>
+                                                        </div>
+
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Ingredientes</a></h3>
+                                                            </center>
+                                                            <p>280g de harina</p>
+                                                            <p>2 cucharaditas de polvo para hornear</p>
+                                                            <p>2 cucharadas de azúcar</p>
+                                                            <p>1 cucharadita de sal</p>
+                                                            <p>2 tazas de leche semidescremada</p>
+                                                            <p>2 huevos</p>
+                                                            <p>2 cucharadas de aceite vegetal</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Preparacion</a></h3>
+                                                            </center>
+
+                                                            <p>En un bowl grande, mezclar la harina, polvo para hornear, azúcar y sal. Agregar la leche, los huevos y aceite. Mezclar bien.</p>
+                                                            <p>Volcar un cucharón de pasta sobre la waflera caliente. Cocinar hasta que los waffles estén dorados y crujientes.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_b">
+                                <h1>Almuerzo</h1>
+                                <p>Por favor seleccione alguna de las siguientes recetas para planificar su comida.</p>
+                                <div class="panel-group" id="accordion-almuerzo">
+                                    <div class="panel panel-default" data-toggle="collapse" href="#collapse-almuerzo-1" data-parent="#accordion-almuerzo">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                        <a>Bife a la parrilla</a>
+                                    </h4>
+                                        </div>
+                                        <div id="collapse-almuerzo-1" class="panel-collapse collapse">
+                                            <div class="panel-body ">
+                                                <div class="conteiner">
+                                                    <div class="row row-centered">
+                                                        <div class="col-md-3">
+                                                            <img src="img/Almuerzos/bife.jpg" width="100%">
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="jumbotron">
+                                                                <center>
+                                                                    <h1>Bife a la parrilla</h1>
+                                                                    <p>Preparar un bife jugoso tiene sus secretos. Aquí los compartimos con usted, para que pueda preparar en su casa un delicioso bife y sorprender a sus amigos. Un bife jugoso y a punto queda muy bien acompañado con hongos salteados y puré de papas.</p>
+                                                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                                                                        <spam class="glyphicon glyphicon-plus-sign"></spam> Agregar</button>
+                                                                    <button type="button" class="btn btn-default btn-lg"> Cancelar</button>
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row row-centered">
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Descripcion</a></h3>
+                                                            </center>
+                                                            <p>El secreto para que este plato sea saludable es servir una generosa porción de vegetales mixtos y un bife de tamaño mediano o chico. Un plato sabroso para quienes desean cuidar su salud.</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Ingredientes</a></h3>
+                                                            </center>
+                                                            <p>4 (150g- 200g) bifes de chorizo</p>
+                                                            <p>2 cucharadas de aceite de oliva</p>
+                                                            <p>sal y pimienta a gusto</p>
+                                                            <p>8 dientes de ajo, machacados</p>
+                                                            <p>4 ramitas de romero fresco</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Preparacion</a></h3>
+                                                            </center>
+
+                                                            <p>Precalentar la parrilla a temperatura bien alta.</p>
+                                                            <p>Frotar cada bife con aceite de oliva (ésto es para evitar que los bifes se peguen a la parrilla). Condimentar con sal y pimienta. Frotar el ajo fresco en ambos lados de cada bife. Dejar reposar durante 15 minutos.</p>
+                                                            <p>Colocar los bifes en la parrilla precalentada, e inmediatamente darlos vuelta después de 30 segundos (este paso es para sellar la carne y que quede jugosa). Colocar las ramitas de romero sobre los bifes. Cocinar 5 minutos por cada lado, o al punto de cocción deseado. Retirar la ramita de romero al dar vuelta la carne y colocar nuevamente en la parte superior.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default" data-toggle="collapse" href="#collapse-almuerzo-2" data-parent="#accordion-almuerzo">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                        <a>Waffles</a>
+                                    </h4>
+                                        </div>
+                                        <div id="collapse-almuerzo-2" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <div class="conteiner">
+                                                    <div class="row row-centered">
+                                                        <div class="col-md-3">
+                                                            <img src="img/Desayunos/waffles.jpg" width="100%">
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="jumbotron">
+                                                                <center>
+                                                                    <h1>Waffles</h1>
+                                                                    <p>Estos son los mejores waffles del mundo. Ideales para servir para snack o postre, y sobre todo si le agregamos un copete de dulce de leche, quedan todavía mejor.</p>
+                                                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                                                                        <spam class="glyphicon glyphicon-plus-sign"></spam> Agregar</button>
+                                                                    <button type="button" class="btn btn-default btn-lg"> Cancelar</button>
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-centered">
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Descripcion</a></h3>
+                                                            </center>
+                                                            <p>Necesitas una waflera para cocinar estos waffles que son buenísimos para el desayuno o la merienda de la tarde. A los chicos les encantan con miel, crema Chantilly o helado de vainilla.</p>
+                                                        </div>
+
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Ingredientes</a></h3>
+                                                            </center>
+                                                            <p>280g de harina</p>
+                                                            <p>2 cucharaditas de polvo para hornear</p>
+                                                            <p>2 cucharadas de azúcar</p>
+                                                            <p>1 cucharadita de sal</p>
+                                                            <p>2 tazas de leche semidescremada</p>
+                                                            <p>2 huevos</p>
+                                                            <p>2 cucharadas de aceite vegetal</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Preparacion</a></h3>
+                                                            </center>
+
+                                                            <p>En un bowl grande, mezclar la harina, polvo para hornear, azúcar y sal. Agregar la leche, los huevos y aceite. Mezclar bien.</p>
+                                                            <p>Volcar un cucharón de pasta sobre la waflera caliente. Cocinar hasta que los waffles estén dorados y crujientes.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_c">
+                                <h1>Merienda</h1>
+                                <p>Por favor seleccione alguna de las siguientes recetas para planificar su comida.</p>
+                                <div class="panel-group" id="accordion-merienda">
+                                    <div class="panel panel-default" data-toggle="collapse" href="#collapse-merienda-1" data-parent="#accordion-merienda">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                        <a>Omelettes</a>
+                                    </h4>
+                                        </div>
+                                        <div id="collapse-merienda-1" class="panel-collapse collapse">
+                                            <div class="panel-body ">
+                                                <div class="conteiner">
+                                                    <div class="row row-centered">
+                                                        <div class="col-md-3">
+                                                            <img src="img/Desayunos/omelette.png" width="100%">
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="jumbotron">
+                                                                <center>
+                                                                    <h1>Omelettes</h1>
+                                                                    <p>Una excelente receta con huevos. Este omelette lo va a sacar de un apuro, preparando un plato rapidísmo pero igualmente delicioso y nutritivo.</p>
+                                                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                                                                        <spam class="glyphicon glyphicon-plus-sign"></spam> Agregar</button>
+                                                                    <button type="button" class="btn btn-default btn-lg"> Cancelar</button>
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row row-centered">
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Descripcion</a></h3>
+                                                            </center>
+                                                            <p>La receta de este omelette lleva queso Emmental, pero puede sustituírlo por Gruyere o Mar del Palta. Es muy simple de preparar y se va a transformar en su caballito de batalla para aquellas comidas rápidas o un brunch especial. Sazonar con hiervas frescas si lo desea.</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Ingredientes</a></h3>
+                                                            </center>
+                                                            <p>2 cucharadas de aceite de oliva</p>
+                                                            <p>1 cebolla finamente picada</p>
+                                                            <p>8 huevos (2 por persona)</p>
+                                                            <p>1 cucharadita de agua</p>
+                                                            <p>50 gr de queso emmental</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Preparacion</a></h3>
+                                                            </center>
+
+                                                            <p>Calentar el aceite de oliva a una sartén antiadherente a fuego mediano. Rehogar la cebolla por 5 minutos hasta que se ponga tierna.</p>
+                                                            <p>Batir los huevos. Agregar la cucharadita de agua y mezclar bien.</p>
+                                                            <p>Subir el fuego de la sartén. Incorporar los huevos batidos. Con una cuchara de madera, traer los bordes del omelette hacia el centro de la sartén, dejando que se mueva la parte líquida, para que se cocine. Repetir varias veces este proceso hasta que se haya coagulado todo el huevo. Agregar el queso rallado. Bajar el fuego y cocinar por otros 5 a 10 minutos.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default" data-toggle="collapse" href="#collapse-merienda-2" data-parent="#accordion-merienda">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                        <a>Waffles</a>
+                                    </h4>
+                                        </div>
+                                        <div id="collapse-merienda-2" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <div class="conteiner">
+                                                    <div class="row row-centered">
+                                                        <div class="col-md-3">
+                                                            <img src="img/Desayunos/waffles.jpg" width="100%">
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="jumbotron">
+                                                                <center>
+                                                                    <h1>Waffles</h1>
+                                                                    <p>Estos son los mejores waffles del mundo. Ideales para servir para snack o postre, y sobre todo si le agregamos un copete de dulce de leche, quedan todavía mejor.</p>
+                                                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                                                                        <spam class="glyphicon glyphicon-plus-sign"></spam> Agregar</button>
+                                                                    <button type="button" class="btn btn-default btn-lg"> Cancelar</button>
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-centered">
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Descripcion</a></h3>
+                                                            </center>
+                                                            <p>Necesitas una waflera para cocinar estos waffles que son buenísimos para el desayuno o la merienda de la tarde. A los chicos les encantan con miel, crema Chantilly o helado de vainilla.</p>
+                                                        </div>
+
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Ingredientes</a></h3>
+                                                            </center>
+                                                            <p>280g de harina</p>
+                                                            <p>2 cucharaditas de polvo para hornear</p>
+                                                            <p>2 cucharadas de azúcar</p>
+                                                            <p>1 cucharadita de sal</p>
+                                                            <p>2 tazas de leche semidescremada</p>
+                                                            <p>2 huevos</p>
+                                                            <p>2 cucharadas de aceite vegetal</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Preparacion</a></h3>
+                                                            </center>
+
+                                                            <p>En un bowl grande, mezclar la harina, polvo para hornear, azúcar y sal. Agregar la leche, los huevos y aceite. Mezclar bien.</p>
+                                                            <p>Volcar un cucharón de pasta sobre la waflera caliente. Cocinar hasta que los waffles estén dorados y crujientes.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_d">
+                                <h1>Cena</h1>
+                                <p>Por favor seleccione alguna de las siguientes recetas para planificar su comida.</p>
+                                <div class="panel-group" id="accordion-cena">
+                                    <div class="panel panel-default" data-toggle="collapse" href="#collapse-cena-1" data-parent="#accordion-cena">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                        <a>Omelettes</a>
+                                    </h4>
+                                        </div>
+                                        <div id="collapse-cena-1" class="panel-collapse collapse">
+                                            <div class="panel-body ">
+                                                <div class="conteiner">
+                                                    <div class="row row-centered">
+                                                        <div class="col-md-3">
+                                                            <img src="img/Desayunos/omelette.png" width="100%">
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="jumbotron">
+                                                                <center>
+                                                                    <h1>Omelettes</h1>
+                                                                    <p>Una excelente receta con huevos. Este omelette lo va a sacar de un apuro, preparando un plato rapidísmo pero igualmente delicioso y nutritivo.</p>
+                                                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                                                                        <spam class="glyphicon glyphicon-plus-sign"></spam> Agregar</button>
+                                                                    <button type="button" class="btn btn-default btn-lg"> Cancelar</button>
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row row-centered">
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Descripcion</a></h3>
+                                                            </center>
+                                                            <p>La receta de este omelette lleva queso Emmental, pero puede sustituírlo por Gruyere o Mar del Palta. Es muy simple de preparar y se va a transformar en su caballito de batalla para aquellas comidas rápidas o un brunch especial. Sazonar con hiervas frescas si lo desea.</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Ingredientes</a></h3>
+                                                            </center>
+                                                            <p>2 cucharadas de aceite de oliva</p>
+                                                            <p>1 cebolla finamente picada</p>
+                                                            <p>8 huevos (2 por persona)</p>
+                                                            <p>1 cucharadita de agua</p>
+                                                            <p>50 gr de queso emmental</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Preparacion</a></h3>
+                                                            </center>
+
+                                                            <p>Calentar el aceite de oliva a una sartén antiadherente a fuego mediano. Rehogar la cebolla por 5 minutos hasta que se ponga tierna.</p>
+                                                            <p>Batir los huevos. Agregar la cucharadita de agua y mezclar bien.</p>
+                                                            <p>Subir el fuego de la sartén. Incorporar los huevos batidos. Con una cuchara de madera, traer los bordes del omelette hacia el centro de la sartén, dejando que se mueva la parte líquida, para que se cocine. Repetir varias veces este proceso hasta que se haya coagulado todo el huevo. Agregar el queso rallado. Bajar el fuego y cocinar por otros 5 a 10 minutos.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default" data-toggle="collapse" href="#collapse-cena-2" data-parent="#accordion-cena">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                        <a>Waffles</a>
+                                    </h4>
+                                        </div>
+                                        <div id="collapse-cena-2" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <div class="conteiner">
+                                                    <div class="row row-centered">
+                                                        <div class="col-md-3">
+                                                            <img src="img/Desayunos/waffles.jpg" width="100%">
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="jumbotron">
+                                                                <center>
+                                                                    <h1>Waffles</h1>
+                                                                    <p>Estos son los mejores waffles del mundo. Ideales para servir para snack o postre, y sobre todo si le agregamos un copete de dulce de leche, quedan todavía mejor.</p>
+                                                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                                                                        <spam class="glyphicon glyphicon-plus-sign"></spam> Agregar</button>
+                                                                    <button type="button" class="btn btn-default btn-lg"> Cancelar</button>
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-centered">
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Descripcion</a></h3>
+                                                            </center>
+                                                            <p>Necesitas una waflera para cocinar estos waffles que son buenísimos para el desayuno o la merienda de la tarde. A los chicos les encantan con miel, crema Chantilly o helado de vainilla.</p>
+                                                        </div>
+
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Ingredientes</a></h3>
+                                                            </center>
+                                                            <p>280g de harina</p>
+                                                            <p>2 cucharaditas de polvo para hornear</p>
+                                                            <p>2 cucharadas de azúcar</p>
+                                                            <p>1 cucharadita de sal</p>
+                                                            <p>2 tazas de leche semidescremada</p>
+                                                            <p>2 huevos</p>
+                                                            <p>2 cucharadas de aceite vegetal</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <center>
+                                                                <h3><a href = "#">Preparacion</a></h3>
+                                                            </center>
+
+                                                            <p>En un bowl grande, mezclar la harina, polvo para hornear, azúcar y sal. Agregar la leche, los huevos y aceite. Mezclar bien.</p>
+                                                            <p>Volcar un cucharón de pasta sobre la waflera caliente. Cocinar hasta que los waffles estén dorados y crujientes.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab_f" class="tab-pane">
+
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="img/Green%20Tick.png" width="100%">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="jumbotron">
+                                            <h2>
+                                    ¡La receta se agrego correctamente!
+                                    </h2>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-header-success">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Confirmar receta</h4>
+                </div>
+                <div class="modal-body">
+                    ¿Esta seguro que desea agregar esta receta?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <a href="#tab_f" data-toggle="pill" class="btn btn-primary " data-dismiss="modal">Agregar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="conteiner">
+            <p class="navbar-text pull-left">
+                UTN - Diseño de sistemas 2015 - K3054 - Grupo 08
+            </p>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+</body>
+
+</html>
