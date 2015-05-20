@@ -4,7 +4,7 @@ public class Usuario {
 	String email="";
 	String nombre="";
 	int edad=0;
-	String Perfil="";
+	String dieta="";
 	int altura=0;
 	String complexion="";
 	char sexo = 'M';
@@ -16,13 +16,13 @@ public class Usuario {
 		
 	}
 	
-	public Usuario crearUsuario(String email,String nombre,int edad,String perfil,int altura,String complexion, char sexo,String precond,String rutina)
+	public Usuario crearUsuario(String email,String nombre,int edad,String dieta,int altura,String complexion, char sexo,String precond,String rutina)
 	{
 		Usuario usr = new Usuario();
 		usr.email=email;
 		usr.nombre=nombre;
 		usr.edad=edad;
-		usr.Perfil=perfil;
+		usr.dieta=dieta;
 		usr.altura=altura;
 		usr.complexion=complexion;
 		usr.sexo=sexo;
