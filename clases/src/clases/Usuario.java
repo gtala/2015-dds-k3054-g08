@@ -20,7 +20,15 @@ public class Usuario {
 	{
 		Usuario usr = new Usuario();
 		usr.email=email;
-		
+		usr.nombre=nombre;
+		usr.edad=edad;
+		usr.Perfil=perfil;
+		usr.altura=altura;
+		usr.complexion=complexion;
+		usr.sexo=sexo;
+		usr.precondicion=precond;
+		usr.rutina=rutina;
 		return usr;
 	}
+
 }
