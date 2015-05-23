@@ -2,6 +2,11 @@ package clases;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,6 +17,7 @@ public class UsuarioTest {
 	
 	private Usuario unobjeto; 
 	private Usuario unobjeto2;
+	private Receta  unaReceta;
 	
 	private final String emailtest = "utnfrba@gmail.com";	
 	private final String nombretest = "pepe";
@@ -20,7 +26,7 @@ public class UsuarioTest {
 	private final double alturatest = 1.80;
 	private final String complexiontest = "media";
 	private final char sexotest = 'M';
-	private final String precondiciontest = "sano";
+	private final String precondiciontest = "SANO";
 	private final String rutinatest = "mediano";
 
 	@BeforeClass
@@ -64,4 +70,20 @@ public class UsuarioTest {
 		assertEquals(verdad, true);
 	}
 	
+	@Test
+	public void testListarRecetas () {
+		
+		final LinkedList <Receta> nuevaListaRecetas;
+		final List<String> listadoIngredientes  = Arrays.asList("HUEVO", "HARINA", "CARNE", "AZUCAR");
+		final Date today = new Date();
+
+		this.unobjeto   = new Usuario().crearUsuario(emailtest,nombretest,edadtest,dietatest,alturatest,complexiontest,sexotest,precondiciontest,rutinatest);
+		this.unaReceta  = new Receta().crearReceta(this.unobjeto, "DESAYUNO", today, listadoIngredientes);
+		
+		nuevaListaRecetas = this.unaReceta.planificarReceta(this.unobjeto.getRecetas(), this.unobjeto.getPrecondicion(), today, "DESAYUNO");
+		
+		this.unobjeto.setRecetas(nuevaListaRecetas);
+			
+		assertFalse("No se pudo listar sus recetas",this.unobjeto.listarRecetas() == null);
+	}
 }

@@ -1,13 +1,11 @@
 package clases;
 
 import java.util.List;
-
-
-
+import java.util.LinkedList;
 
 public class Usuario {
 	private List<Grupo> grupos;
-	private List<Receta> recetas;
+	private LinkedList<Receta> recetas;
 	private String email="";
 	private String nombre="";
 	private int edad=0;
@@ -60,11 +58,11 @@ public class Usuario {
 		this.grupos = grupos;
 	}
 
-	public List<Receta> getRecetas() {
+	public LinkedList<Receta> getRecetas() {
 		return recetas;
 	}
 
-	public void setRecetas(List<Receta> recetas) {
+	public void setRecetas(LinkedList<Receta> recetas) {
 		this.recetas = recetas;
 	}
 
@@ -140,6 +138,45 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 
+	public LinkedList <Receta> listarRecetas(){
+
+		LinkedList <Receta> listadoRecetasUsuario = new LinkedList <Receta>();
+		int size;
+		
+		listadoRecetasUsuario = this.getRecetas();
+		
+		System.out.println("Tamanio de listadoRecetasUsuario: "+listadoRecetasUsuario.size());
+		
+		System.out.println("Llego a asignar la receta");
+		
+		if (this.getGrupos() != null)
+			size = this.getGrupos().size();
+		else
+			size = 0;
+		
+		System.out.println("Tamanio de size: "+size);
+		
+		for (int i = 0; i < size; i++){
+			listadoRecetasUsuario = juntarListas(listadoRecetasUsuario, this.getGrupos().get(i).listadoRecetas());
+		}
+		
+		return listadoRecetasUsuario;
+	}
+	
+	public LinkedList <Receta> juntarListas ( LinkedList <Receta> unListado, LinkedList <Receta> otroListado){
+		
+		int size;
+		
+		size = otroListado.size();
+		
+		for (int i = 0; i < size; i++){
+			unListado.add(otroListado.get(i));
+		}
+		
+		return unListado;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
