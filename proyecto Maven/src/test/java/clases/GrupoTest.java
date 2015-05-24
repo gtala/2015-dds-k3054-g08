@@ -45,9 +45,13 @@ public class GrupoTest {
 	
 	@Test
 	public void testAgregarUsuarioRepetido() {
-		grupoTest.agregarUsuario(this.usuarioTest);
-		grupoTest.agregarUsuario(this.usuarioTest);
-		assertFalse("Se intento agregar un usuario repetido",grupoTest.getUsuarios().size()!=2);
+		if(this.grupoTest.usuarios == null)
+		{
+			this.grupoTest.usuarios = new LinkedList<Usuario>();
+		}
+		boolean existeElUsuarioEnLaColeccion = this.grupoTest.usuarios.contains(this.usuarioTest);
+		this.grupoTest.agregarUsuario(this.usuarioTest);
+		assertFalse("Se intento agregar un usuario repetido",existeElUsuarioEnLaColeccion);
 	}
 	
 	@Test
@@ -59,10 +63,13 @@ public class GrupoTest {
 	
 	@Test
 	public void testRemoverUsuarioInExistente() {
-		int sizeBef = grupoTest.cantidadUsuarios();
-		grupoTest.quitarUsuario(this.usuarioTest);
-		int sizeAft = grupoTest.cantidadUsuarios();
-		assertFalse("Se intento eliminar un usuario inexistente", sizeBef==sizeAft);
+		if(this.grupoTest.usuarios == null)
+		{
+			this.grupoTest.usuarios = new LinkedList<Usuario>();
+		}
+		boolean existeElUsuarioEnLaColeccion = this.grupoTest.usuarios.contains(this.usuarioTest);
+		this.grupoTest.quitarUsuario(this.usuarioTest);
+		assertTrue("Se intento eliminar un usuario inexistente", !existeElUsuarioEnLaColeccion);
 	}
 	
 	@Test
