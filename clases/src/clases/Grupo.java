@@ -10,6 +10,10 @@ public class Grupo {
 		return usuarios;
 	}
 	
+	public int cantidadUsuarios() {
+		return usuarios.size;
+	}
+	
 	public LinkedList <Receta> listadoRecetas(){
 		LinkedList <Receta> unListado = new LinkedList <Receta> ();
 		
