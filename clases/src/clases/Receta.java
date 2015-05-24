@@ -10,6 +10,7 @@ public class Receta {
 	private Date         fecha;
 	private String       horario;
 	private List<String> ingredientes;
+	private boolean		 compartida;
 
 	public Receta crearReceta (Usuario unCreador, String unHorario, Date unaFecha, List <String> listaIng){
 		final Receta nuevaReceta;
@@ -18,6 +19,7 @@ public class Receta {
 		nuevaReceta.setHorario(unHorario);
 		nuevaReceta.setFecha(unaFecha);
 		nuevaReceta.setIngredientes(listaIng);
+		nuevaReceta.setCompartida(false);
 		return nuevaReceta;
 	}
 	
@@ -99,6 +101,14 @@ public class Receta {
 		}
 			
 		return true;
+	}
+	
+	public void setCompartida(boolean unBool) {
+		this.compartida = unBool;
+	}
+	
+	public boolean getCompartida() {
+		return this.compartida;
 	}
 	
 	public void setCreador(Usuario unCreador){

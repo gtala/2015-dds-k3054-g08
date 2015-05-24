@@ -176,6 +176,25 @@ public class Usuario {
 		return unListado;
 	}
 	
+	public LinkedList<Receta> getRecetasCompartidas() {
+		LinkedList<Receta> listaRecetasCompartidas = new LinkedList<Receta> ();
+	
+		for (Receta r : this.getRecetas()) {
+			if (r.getCompartida()) {
+				listaRecetasCompartidas.add(r);
+			}
+		}
+		
+		return listaRecetasCompartidas;
+	}
+	
+	public void agregarGrupo(Grupo unGrupo) {
+		grupos.add(unGrupo); //validacion de repeticion hecha en el grupo
+	}
+	
+	public void removerGrupo(Grupo unGrupo) {
+		grupos.remove(unGrupo); //igual que el anterior
+	}
 	
 	@Override
 	public int hashCode() {
