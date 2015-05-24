@@ -1,5 +1,9 @@
 package clases;
 
+import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -38,7 +42,6 @@ public class ValidacionesTest {
  
             // Check if the e-mail is valid using our method.
             boolean valid = Validaciones.validateEmail(temp);
-            System.out.println("Email is valid : " + temp + " , " + valid);
  
             // All of e-mails of this test must be valid.
             Assert.assertEquals(valid, true);
@@ -56,11 +59,22 @@ public class ValidacionesTest {
  
             // Check if the e-mail is valid using our method.
             boolean valid = Validaciones.validateEmail(temp);
-            System.out.println("Email is valid : " + temp + " , " + valid);
  
             // All of e-mails of this test must be invalid.
             Assert.assertEquals(valid, false);
         }
  
+    }
+    
+    @Test
+    public void testvalidateDate (){
+    	int x = -7;
+    	Calendar cal = GregorianCalendar.getInstance();
+    	cal.add( Calendar.DAY_OF_YEAR, x);
+    	Date daysAgo = cal.getTime();
+    	
+    	boolean valid = Validaciones.validateDate(daysAgo);
+
+    	Assert.assertEquals(valid, true);
     }
 }

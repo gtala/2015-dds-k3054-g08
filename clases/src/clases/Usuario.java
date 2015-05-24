@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.LinkedList;
 
 public class Usuario {
-	private List<Grupo> grupos;
+	private LinkedList<Grupo> grupos;
 	private LinkedList<Receta> recetas;
 	private String email="";
 	private String nombre="";
@@ -54,7 +54,7 @@ public class Usuario {
 		return grupos;
 	}
 
-	public void setGrupos(List<Grupo> grupos) {
+	public void setGrupos(LinkedList<Grupo> grupos) {
 		this.grupos = grupos;
 	}
 
@@ -144,17 +144,11 @@ public class Usuario {
 		int size;
 		
 		listadoRecetasUsuario = this.getRecetas();
-		
-		System.out.println("Tamanio de listadoRecetasUsuario: "+listadoRecetasUsuario.size());
-		
-		System.out.println("Llego a asignar la receta");
-		
+			
 		if (this.getGrupos() != null)
 			size = this.getGrupos().size();
 		else
 			size = 0;
-		
-		System.out.println("Tamanio de size: "+size);
 		
 		for (int i = 0; i < size; i++){
 			listadoRecetasUsuario = juntarListas(listadoRecetasUsuario, this.getGrupos().get(i).listadoRecetas());
@@ -188,12 +182,19 @@ public class Usuario {
 		return listaRecetasCompartidas;
 	}
 	
-	public void agregarGrupo(Grupo unGrupo) {
-		grupos.add(unGrupo); //validacion de repeticion hecha en el grupo
+	public LinkedList <Grupo> agregarGrupo(Grupo unGrupo) {
+		LinkedList<Grupo> unListadoGrupo = new LinkedList<Grupo>();
+		if (grupos == null){
+			grupos = unListadoGrupo;
+			grupos.add(unGrupo); //validacion de repeticion hecha en el grupo
+			return grupos;
+		}
+		return grupos;
 	}
 	
-	public void removerGrupo(Grupo unGrupo) {
+	public LinkedList<Grupo> removerGrupo(Grupo unGrupo) {
 		grupos.remove(unGrupo); //igual que el anterior
+		return grupos;
 	}
 	
 	@Override

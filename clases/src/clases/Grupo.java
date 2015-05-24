@@ -1,17 +1,22 @@
 package clases;
 
-import java.util.List;
 import java.util.LinkedList;
 
 public class Grupo {
-	List <Usuario> usuarios;
+	LinkedList <Usuario> usuarios;
 	
-	public List<Usuario> getUsuarios(){
+	public LinkedList<Usuario> getUsuarios(){
 		return usuarios;
 	}
 	
 	public int cantidadUsuarios() {
-		return usuarios.size();
+		int size;
+		if (usuarios == null)
+			size = 0;
+		else
+			size = usuarios.size();
+				
+		return size;
 	}
 	
 	public LinkedList <Receta> listadoRecetas(){
@@ -26,34 +31,52 @@ public class Grupo {
 		return unListado;
 	}
 	
-	public void agregarUsuario(Usuario unUsuario) {
-		for (Usuario u : usuarios) {
-			if (u == unUsuario) {
-				throw new UnaExceptionMuyClaraYPuntual("El usuario ya se encuentra en el grupo.\n");
-				return;
+	public LinkedList<Usuario> agregarUsuario(Usuario unUsuario) {
+		
+		LinkedList<Usuario> unListado = new LinkedList<Usuario>();
+
+		int size;
+		
+		if (usuarios == null){
+			usuarios = unListado;
+			usuarios.add(unUsuario);
+			unUsuario.agregarGrupo(this);
+			return usuarios;
+		}
+		else
+			size = usuarios.size();
+		
+		for (int i = 0; i < size; i++){
+			if (usuarios.get(i) == unUsuario) {
+				new UnaExceptionMuyClaraYPuntual("El usuario ya se encuentra en el grupo.\n");
+				return usuarios;
 			}
 		}
-		
 		usuarios.add(unUsuario);
 		unUsuario.agregarGrupo(this);
+		return usuarios;
 	}
 	
-	public void quitarUsuario(Usuario unUsuario) {
-		int index;
+	public LinkedList<Usuario> quitarUsuario(Usuario unUsuario){
+		
+		int index, size;
 		boolean llave = false;
 		
-		for (index = 0; index < usuarios.size(); index += 1) {
+		if (usuarios == null)
+			size = 0;
+		else
+			size = usuarios.size();
+		
+		for (index = 0; index < size; index += 1) {
 			if (usuarios.get(index) == unUsuario) {
 				llave = true;
 				break;
 			}
 		}
-		
-		if (!llave) {
-			throw new UnaExceptionMuyClaraYPuntual("Ese ususario no se encuentra en este grupo.\n");
-		} else {
-			usuarios.remove(index);
+		if (llave) {
 			usuarios.get(index).removerGrupo(this);
+			usuarios.remove(index);
 		}
+		return usuarios;
 	}
 }

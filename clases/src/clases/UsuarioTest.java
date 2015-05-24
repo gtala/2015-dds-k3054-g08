@@ -28,6 +28,13 @@ public class UsuarioTest {
 	private final char sexotest = 'M';
 	private final String precondiciontest = "SANO";
 	private final String rutinatest = "mediano";
+	
+	private final String ingredienteA  = "HUEVO";
+	private final String ingredienteB  = "HARINA";
+	private final String ingredienteC  = "CARNE";
+	private final String ingredienteD  = "AZUCAR";
+	private final String horarioReceta = "DESAYUNO";
+	private final String horarioPlan   = "DESAYUNO";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -74,13 +81,13 @@ public class UsuarioTest {
 	public void testListarRecetas () {
 		
 		final LinkedList <Receta> nuevaListaRecetas;
-		final List<String> listadoIngredientes  = Arrays.asList("HUEVO", "HARINA", "CARNE", "AZUCAR");
+		final List<String> listadoIngredientes  = Arrays.asList(ingredienteA, ingredienteB, ingredienteC, ingredienteD);
 		final Date today = new Date();
 
 		this.unobjeto   = new Usuario().crearUsuario(emailtest,nombretest,edadtest,dietatest,alturatest,complexiontest,sexotest,precondiciontest,rutinatest);
-		this.unaReceta  = new Receta().crearReceta(this.unobjeto, "DESAYUNO", today, listadoIngredientes);
+		this.unaReceta  = new Receta().crearReceta(this.unobjeto, horarioReceta, today, listadoIngredientes);
 		
-		nuevaListaRecetas = this.unaReceta.planificarReceta(this.unobjeto.getRecetas(), this.unobjeto.getPrecondicion(), today, "DESAYUNO");
+		nuevaListaRecetas = this.unaReceta.planificarReceta(this.unobjeto.getRecetas(), this.unobjeto.getPrecondicion(), today, horarioPlan);
 		
 		this.unobjeto.setRecetas(nuevaListaRecetas);
 			

@@ -1,21 +1,16 @@
 package clases;
 
 import static org.junit.Assert.*;
-import junit.framework.Assert;
-import org.junit.After;
+
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.JUnitCore; 
-import org.junit.runner.Result; 
-import org.junit.runner.notification.Failure;
+
 import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.junit.Test;
-
-public class Grupo Test {
+public class GrupoTest {
 	
 	private Grupo grupoTest;
 	private Usuario usuarioTest;
@@ -29,7 +24,12 @@ public class Grupo Test {
 	private final char sexotest = 'M';
 	private final String precondiciontest = "SANO";
 	private final String rutinatest = "mediano";
+
+	private final String ingredienteA  = "CAFE";
+	private final String ingredienteB  = "TOSTADAS";
+	private final String horarioReceta = "DESAYUNO";
 	
+
 	@Before
 	public void setUp() throws Exception {
 		grupoTest = new Grupo();
@@ -38,27 +38,31 @@ public class Grupo Test {
 	
 	@Test
 	public void testAgregarUsuarioNoRepetido() {
-		grupoTest.agregarUsuario(this.usuarioTest);
-		assertEquals(grupoTest.getUsuarios().get(0), this.usuarioTest);
+		List<Usuario> unListado; 
+		unListado = grupoTest.agregarUsuario(this.usuarioTest);
+		assertEquals(unListado.get(0), this.usuarioTest);
 	}
 	
-	@Test(expected = UnaExceptionMuyClaraYPuntual.class)
+	@Test
 	public void testAgregarUsuarioRepetido() {
 		grupoTest.agregarUsuario(this.usuarioTest);
 		grupoTest.agregarUsuario(this.usuarioTest);
+		assertFalse("Se intento agregar un usuario repetido",grupoTest.getUsuarios().size()!=2);
 	}
 	
 	@Test
 	public void testRemoverUsuarioExistente() {
 		grupoTest.agregarUsuario(this.usuarioTest);
-		
-		grupoTest.removerUsuario(this.usuarioTest);
+		grupoTest.quitarUsuario(this.usuarioTest);
 		assertEquals(0, grupoTest.cantidadUsuarios());
 	}
 	
-	@Test(expected = UnaExceptionMuyClaraYPuntual.class)
+	@Test
 	public void testRemoverUsuarioInExistente() {
-		grupoTest.removerUsuario(this.usuarioTest);
+		int sizeBef = grupoTest.cantidadUsuarios();
+		grupoTest.quitarUsuario(this.usuarioTest);
+		int sizeAft = grupoTest.cantidadUsuarios();
+		assertFalse("Se intento eliminar un usuario inexistente", sizeBef==sizeAft);
 	}
 	
 	@Test
@@ -70,13 +74,13 @@ public class Grupo Test {
 	}
 	
 	public void setUsuarioTest() {
-		final List<String> listadoIngredientes  = Arrays.asList("CAFE", "TOSTADAS");
+		final List<String> listadoIngredientes  = Arrays.asList(ingredienteA, ingredienteB);
 		final Date today = new Date();
 		Receta unaReceta;
 		final LinkedList<Receta> nuevaListaRecetas = new LinkedList<Receta> ();
 		
 		this.usuarioTest   = new Usuario().crearUsuario(emailtest,nombretest,edadtest,dietatest,alturatest,complexiontest,sexotest,precondiciontest,rutinatest);
-		unaReceta  = new Receta().crearReceta(this.usuarioTest, "DESAYUNO", today, listadoIngredientes);
+		unaReceta  = new Receta().crearReceta(this.usuarioTest, horarioReceta, today, listadoIngredientes);
 		nuevaListaRecetas.add(unaReceta);
 		this.usuarioTest.setRecetas(nuevaListaRecetas);
 	}

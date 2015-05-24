@@ -27,7 +27,7 @@ public class Validaciones {
     public static boolean validateDate(Date unaFecha) {
     	 
     	Date today = new Date();
-    	int  diff  = today.compareTo(unaFecha);
+    	long diff = (today.getTime() - unaFecha.getTime()) / (1000 * 60 * 60 * 24);
     	
     	if (diff > 7){
     		return false;
