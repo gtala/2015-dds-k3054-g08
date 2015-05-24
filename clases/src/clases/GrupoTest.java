@@ -24,43 +24,39 @@ public class Grupo Test {
 	private final String precondiciontest = "SANO";
 	private final String rutinatest = "mediano";
 	
-	@Test
-	public void testAgregarUsuarioNoRepetido() {
+	@Before
+	public void setUp() throws Exception {
 		grupoTest = new Grupo();
 		this.setUsuarioTest();
+	}
+	
+	@Test
+	public void testAgregarUsuarioNoRepetido() {
 		grupoTest.agregarUsuario(this.usuarioTest);
 		assertEquals(grupoTest.get(0), this.usuarioTest);
 	}
 	
-	@Test(expected = UnaExceptionMuyClaraYPuntual)
+	@Test(expected = UnaExceptionMuyClaraYPuntual.class)
 	public void testAgregarUsuarioRepetido() {
-		grupoTest = new Grupo();
-		this.setUsuarioTest();
 		grupoTest.agregarUsuario(this.usuarioTest);
 		grupoTest.agregarUsuario(this.usuarioTest);
 	}
 	
 	@Test
 	public void testRemoverUsuarioExistente() {
-		grupoTest = new Grupo();
-		this.setUsuarioTest();
 		grupoTest.agregarUsuario(this.usuarioTest);
 		
 		grupoTest.removerUsuario(this.usuarioTest);
 		assertEquals(0, grupoTest.cantidadUsuarios());
 	}
 	
-	@Test(expected = UnaExceptionMuyClaraYPuntual)
+	@Test(expected = UnaExceptionMuyClaraYPuntual.class)
 	public void testRemoverUsuarioInExistente() {
-		grupoTest = new Grupo();
-		
 		grupoTest.removerUsuario(this.usuarioTest);
 	}
 	
 	@Test
 	public void testRecetasDelGrupo() {
-		grupoTest = new Grupo();
-		this.setUsuarioTest();
 		grupoTest.agregarUsuario(this.usuarioTest);
 		
 		//las recetas del grupo deberian ser las compartidas por el unico usuario en el
