@@ -1,7 +1,13 @@
 package clases;
 
 import static org.junit.Assert.*;
-
+import junit.framework.Assert;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.JUnitCore; 
+import org.junit.runner.Result; 
+import org.junit.runner.notification.Failure;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedList;
@@ -33,7 +39,7 @@ public class Grupo Test {
 	@Test
 	public void testAgregarUsuarioNoRepetido() {
 		grupoTest.agregarUsuario(this.usuarioTest);
-		assertEquals(grupoTest.get(0), this.usuarioTest);
+		assertEquals(grupoTest.getUsuarios().get(0), this.usuarioTest);
 	}
 	
 	@Test(expected = UnaExceptionMuyClaraYPuntual.class)
@@ -67,9 +73,11 @@ public class Grupo Test {
 		final List<String> listadoIngredientes  = Arrays.asList("CAFE", "TOSTADAS");
 		final Date today = new Date();
 		Receta unaReceta;
+		final LinkedList<Receta> nuevaListaRecetas = new LinkedList<Receta> ();
 		
 		this.usuarioTest   = new Usuario().crearUsuario(emailtest,nombretest,edadtest,dietatest,alturatest,complexiontest,sexotest,precondiciontest,rutinatest);
 		unaReceta  = new Receta().crearReceta(this.usuarioTest, "DESAYUNO", today, listadoIngredientes);
+		nuevaListaRecetas.add(unaReceta);
 		this.usuarioTest.setRecetas(nuevaListaRecetas);
 	}
 }

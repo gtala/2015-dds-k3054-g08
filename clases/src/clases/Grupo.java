@@ -11,7 +11,7 @@ public class Grupo {
 	}
 	
 	public int cantidadUsuarios() {
-		return usuarios.size;
+		return usuarios.size();
 	}
 	
 	public LinkedList <Receta> listadoRecetas(){
@@ -42,7 +42,7 @@ public class Grupo {
 		int index;
 		boolean llave = false;
 		
-		for (index = 0; index < usuarios.size; index += 1) {
+		for (index = 0; index < usuarios.size(); index += 1) {
 			if (usuarios.get(index) == unUsuario) {
 				llave = true;
 				break;
@@ -53,7 +53,7 @@ public class Grupo {
 			throw new UnaExceptionMuyClaraYPuntual("Ese ususario no se encuentra en este grupo.\n");
 		} else {
 			usuarios.remove(index);
-			usuario.get(index).removerGrupo(this);
+			usuarios.get(index).removerGrupo(this);
 		}
 	}
 }
