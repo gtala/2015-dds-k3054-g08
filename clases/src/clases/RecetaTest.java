@@ -25,14 +25,15 @@ public class RecetaTest {
 	private final String precondiciontest = "SANO";
 	private final String rutinatest       = "mediano";
 	
-	private final String ingredienteA  = "HUEVO";
-	private final String ingredienteB  = "HARINA";
-	private final String ingredienteC  = "CARNE";
-	private final String ingredienteD  = "AZUCAR";
-	private final String ingredienteE  = "CAFE";
-	private final String ingredienteF  = "TOSTADAS";
-	private final String horarioReceta = "DESAYUNO";
-	private final String horarioPlan   = "DESAYUNO";
+	private final String ingredienteA     = "HUEVO";
+	private final String ingredienteB     = "HARINA";
+	private final String ingredienteC     = "CARNE";
+	private final String ingredienteD     = "AZUCAR";
+	private final String ingredienteE     = "CAFE";
+	private final String ingredienteF     = "TOSTADAS";
+	private final String horarioReceta    = "DESAYUNO";
+	private final String horarioPlan      = "DESAYUNO";
+	private final String horarioPlanError = "MERIENDA";
 	
 	@Test
 	public void testPlanificarNuevaReceta()
@@ -60,10 +61,10 @@ public class RecetaTest {
 		this.unobjeto   = new Usuario().crearUsuario(emailtest,nombretest,edadtest,dietatest,alturatest,complexiontest,sexotest,precondiciontest,rutinatest);
 		this.unaReceta  = new Receta().crearReceta(this.unobjeto, horarioReceta, today, listadoIngredientes);
 		
-		nuevaListaRecetas = this.unaReceta.planificarReceta(this.unobjeto.getRecetas(), this.unobjeto.getPrecondicion(), today, horarioPlan);
+		nuevaListaRecetas = this.unaReceta.planificarReceta(this.unobjeto.getRecetas(), this.unobjeto.getPrecondicion(), today, horarioPlanError);
 		
 		this.unobjeto.setRecetas(nuevaListaRecetas);
-		assertFalse("No se pudo crear la receta porque el horario elegido no es valido",this.unobjeto.getRecetas()==null);
+		assertTrue("No se pudo crear la receta porque el horario elegido no es valido",this.unobjeto.getRecetas()==null);
 	}
 	
 	@Test
