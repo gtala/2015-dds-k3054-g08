@@ -15,20 +15,35 @@
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link href="css/styles.css">
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            var parameters = location.search.substring(1).split("&");
+            var usuario = parameters[0].split("=");
+            var usuario = parameters[0].split("=");
+            var nombre = usuario[1];
+            var pimerLetra = nombre.split("")[0].toLocaleUpperCase();
+            var resto = nombre.substring(1, nombre.length);
+            
+            $( "#opciones" ).append( "<li><a>"+pimerLetra + resto +"</a></li>" );
+        });
+    </script>
 
 </head>
 
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <a href="#" class="navbar-brand">Nutriweb</a>
+            <a class="navbar-brand" rel="home" href="#" title="nutriweb" style="margin-left: -60px;">
+                <img style="max-width:100px; margin-top: -13px;" class="pull-left" src="img/Cooking-icon%20(1).png">&nbsp;Nutriweb
+            </a>
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
             <div class="collapse navbar-collapse navHeaderCollapse">
-                <ul class="nav navbar-nav navbar-right">
+                <ul id="opciones" class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#">Home</a>
                     </li>
                     <li><a href="Login.html">Logout</a>
@@ -49,7 +64,7 @@
                 </li>
                 <li data-toggle="collapse" data-target="#comidas" class="collapsed">
                     <a href="#">Planificar comidas <span class="caret"></span></a>
-                </li>    
+                </li>
                 <ul id="comidas" class="collapse list-unstyled">
                     <li><a href="#desayuno" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Desayuno</a>
                     </li>
@@ -65,7 +80,8 @@
                 <ul id="men_recetas" class="collapse list-unstyled">
                     <li><a href="#recetaNueva" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Crear nueva receta</a>
                     </li>
-                    <li><a href="#receteCopia" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Crear a partir de receta</a></li>
+                    <li><a href="#receteCopia" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Crear a partir de receta</a>
+                    </li>
                 </ul>
                 <li data-toggle="tab" data-target="#men_user" class="collapsed">
                     <a href="#">Cuenta <span class="caret"></span></a>
@@ -590,8 +606,8 @@
 
                                 </div>
                             </div>
-                           <!-- /# INICIO CAMBIOS DANDINO -->
-                           <div id="guardar" class="tab-pane">
+                            <!-- /# INICIO CAMBIOS DANDINO -->
+                            <div id="guardar" class="tab-pane">
                                 <div class="row">
                                     <div class="col-md-2">
                                         <img src="img/Green%20Tick.png" width="100%">
@@ -629,13 +645,19 @@
                                         <h1>Crear nueva receta</h1>
                                         <p><font color="red">*</font> Indica que el campo es obligatorio</p>
                                         <table>
-                                             <div class="row">
-                                                <div class="col-md-2"><p>Nombre <font color="red">*</font></p></div>
-                                                <div class="col-md-2"><input type="text" class="form-control" placeholder="Ingrese nombre"></div>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <p>Nombre <font color="red">*</font>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="text" class="form-control" placeholder="Ingrese nombre">
+                                                </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2">Ingredientes <font color="red">*</font></div>
+                                                <div class="col-md-2">Ingredientes <font color="red">*</font>
+                                                </div>
                                                 <div class="col-md-1">
                                                     <input type="checkbox" id="ingrediente1" value="opcion1"> Aceite
                                                 </div>
@@ -684,55 +706,74 @@
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2">Procedimiento <font color="red">*</font></div>
-                                                <div class="col-md-5"><textarea class="form-control" placeholder="Ingrese procedimiento" rows="4"></textarea></div>
+                                                <div class="col-md-2">Procedimiento <font color="red">*</font>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <textarea class="form-control" placeholder="Ingrese procedimiento" rows="4"></textarea>
+                                                </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2">Dificultad receta <font color="red">*</font></div>
+                                                <div class="col-md-2">Dificultad receta <font color="red">*</font>
+                                                </div>
                                                 <div class="col-md-2">
                                                     <select class="form-control">
-                                                            <option value="NoSeleccionado"></option>
-                                                            <option value="1Punto">* (Facil)</option>
-                                                            <option value="2Puntos">** (Media)</option>
-                                                            <option value="3Puntos">*** (Dificil)</option>
-                                                            <option value="4Puntos">**** (Muy dificl)</option>
-                                                            <option value="5Puntos">***** (Experto)</option>
+                                                        <option value="NoSeleccionado"></option>
+                                                        <option value="1Punto">* (Facil)</option>
+                                                        <option value="2Puntos">** (Media)</option>
+                                                        <option value="3Puntos">*** (Dificil)</option>
+                                                        <option value="4Puntos">**** (Muy dificl)</option>
+                                                        <option value="5Puntos">***** (Experto)</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2">Temporada recetario <font color="red">*</font></div>
-                                                <div class="col-md-2"><input type="text" class="form-control" placeholder="Ingrese temporada"></div>
+                                                <div class="col-md-2">Temporada recetario <font color="red">*</font>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="text" class="form-control" placeholder="Ingrese temporada">
+                                                </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2"><p>Calorias total<font color="red">*</font></p></div>
-                                                <div class="col-md-2"><input type="text" class="form-control" placeholder="Ingrese calorias"></div>
+                                                <div class="col-md-2">
+                                                    <p>Calorias total<font color="red">*</font>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="text" class="form-control" placeholder="Ingrese calorias">
+                                                </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2">Filtros de búsqueda <font color="red">*</font></div>
-                                                <div class="col-md-5"><textarea class="form-control" placeholder="Ingrese filtros" rows="2"></textarea></div>
+                                                <div class="col-md-2">Filtros de búsqueda <font color="red">*</font>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <textarea class="form-control" placeholder="Ingrese filtros" rows="2"></textarea>
+                                                </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2">Rango calorias <font color="red">*</font></div>
+                                                <div class="col-md-2">Rango calorias <font color="red">*</font>
+                                                </div>
                                                 <div class="col-md-2">
                                                     <select class="form-control">
-                                                            <option value="NoSeleccionado"></option>
-                                                            <option value="Nivel1">0-100</option>
-                                                            <option value="Nivel2">100-500</option>
-                                                            <option value="Nivel3">500-1000</option>
-                                                            <option value="Nivel4">1000-1500</option>
-                                                            <option value="Nivel5">Más de 1500</option>
+                                                        <option value="NoSeleccionado"></option>
+                                                        <option value="Nivel1">0-100</option>
+                                                        <option value="Nivel2">100-500</option>
+                                                        <option value="Nivel3">500-1000</option>
+                                                        <option value="Nivel4">1000-1500</option>
+                                                        <option value="Nivel5">Más de 1500</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2"> <p>Grupo de Alimento <font color="red">*</font></p></div>
+                                                <div class="col-md-2">
+                                                    <p>Grupo de Alimento <font color="red">*</font>
+                                                    </p>
+                                                </div>
                                                 <div class="col-md-2">
                                                     <select class="form-control">
                                                         <option value="NoSeleccionado"></option>
@@ -750,7 +791,9 @@
                                             <div class="row">&nbsp;</div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2"><button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#guardarRec"><spam class="glyphicon glyphicon-plus-sign"></spam> Guardar</button>
+                                                <div class="col-md-2">
+                                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#guardarRec">
+                                                        <spam class="glyphicon glyphicon-plus-sign"></spam> Guardar</button>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <button type="button" class="btn btn-default btn-lg"> Cancelar</button>
@@ -770,20 +813,24 @@
                                         <p>Los campos no ingresados se hereadaran de la receta elegida</p>
                                         <p><font color="red">*</font> Indica que el campo es obligatorio</p>
                                         <table>
-                                             <div class="row">
-                                                <div class="col-md-2"><p>Nombre <font color="red">*</font></p></div>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <p>Nombre <font color="red">*</font>
+                                                    </p>
+                                                </div>
                                                 <div class="col-md-3">
-                                                <select class="form-control">
-                                                    <option value="NoSeleccionado">-- SELECCIONAR RECETA --</option>
-                                                    <option value="Omelettes">Omelettes</option>
-                                                    <option value="Waffles">Waffles</option>
-                                                    <option value="BAP">Bife a la parrilla</option>
-                                                </select>
-                                            </div>
+                                                    <select class="form-control">
+                                                        <option value="NoSeleccionado">-- SELECCIONAR RECETA --</option>
+                                                        <option value="Omelettes">Omelettes</option>
+                                                        <option value="Waffles">Waffles</option>
+                                                        <option value="BAP">Bife a la parrilla</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2">Ingredientes <font color="red">*</font></div>
+                                                <div class="col-md-2">Ingredientes <font color="red">*</font>
+                                                </div>
                                                 <div class="col-md-1">
                                                     <input type="checkbox" id="ingrediente1" value="opcion1"> Aceite
                                                 </div>
@@ -832,55 +879,74 @@
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2">Procedimiento <font color="red">*</font></div>
-                                                <div class="col-md-5"><textarea class="form-control" placeholder="Ingrese procedimiento" rows="4"></textarea></div>
+                                                <div class="col-md-2">Procedimiento <font color="red">*</font>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <textarea class="form-control" placeholder="Ingrese procedimiento" rows="4"></textarea>
+                                                </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2">Dificultad receta <font color="red">*</font></div>
+                                                <div class="col-md-2">Dificultad receta <font color="red">*</font>
+                                                </div>
                                                 <div class="col-md-2">
                                                     <select class="form-control">
-                                                            <option value="NoSeleccionado"></option>
-                                                            <option value="1Punto">* (Facil)</option>
-                                                            <option value="2Puntos">** (Media)</option>
-                                                            <option value="3Puntos">*** (Dificil)</option>
-                                                            <option value="4Puntos">**** (Muy dificl)</option>
-                                                            <option value="5Puntos">***** (Experto)</option>
+                                                        <option value="NoSeleccionado"></option>
+                                                        <option value="1Punto">* (Facil)</option>
+                                                        <option value="2Puntos">** (Media)</option>
+                                                        <option value="3Puntos">*** (Dificil)</option>
+                                                        <option value="4Puntos">**** (Muy dificl)</option>
+                                                        <option value="5Puntos">***** (Experto)</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2">Temporada recetario <font color="red">*</font></div>
-                                                <div class="col-md-2"><input type="text" class="form-control" placeholder="Ingrese temporada"></div>
+                                                <div class="col-md-2">Temporada recetario <font color="red">*</font>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="text" class="form-control" placeholder="Ingrese temporada">
+                                                </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2"><p>Calorias total<font color="red">*</font></p></div>
-                                                <div class="col-md-2"><input type="text" class="form-control" placeholder="Ingrese calorias"></div>
+                                                <div class="col-md-2">
+                                                    <p>Calorias total<font color="red">*</font>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="text" class="form-control" placeholder="Ingrese calorias">
+                                                </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2">Filtros de búsqueda <font color="red">*</font></div>
-                                                <div class="col-md-5"><textarea class="form-control" placeholder="Ingrese filtros" rows="2"></textarea></div>
+                                                <div class="col-md-2">Filtros de búsqueda <font color="red">*</font>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <textarea class="form-control" placeholder="Ingrese filtros" rows="2"></textarea>
+                                                </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2">Rango calorias <font color="red">*</font></div>
+                                                <div class="col-md-2">Rango calorias <font color="red">*</font>
+                                                </div>
                                                 <div class="col-md-2">
                                                     <select class="form-control">
-                                                            <option value="NoSeleccionado"></option>
-                                                            <option value="Nivel1">0-100</option>
-                                                            <option value="Nivel2">100-500</option>
-                                                            <option value="Nivel3">500-1000</option>
-                                                            <option value="Nivel4">1000-1500</option>
-                                                            <option value="Nivel5">Más de 1500</option>
+                                                        <option value="NoSeleccionado"></option>
+                                                        <option value="Nivel1">0-100</option>
+                                                        <option value="Nivel2">100-500</option>
+                                                        <option value="Nivel3">500-1000</option>
+                                                        <option value="Nivel4">1000-1500</option>
+                                                        <option value="Nivel5">Más de 1500</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2"> <p>Grupo de Alimento <font color="red">*</font></p></div>
+                                                <div class="col-md-2">
+                                                    <p>Grupo de Alimento <font color="red">*</font>
+                                                    </p>
+                                                </div>
                                                 <div class="col-md-2">
                                                     <select class="form-control">
                                                         <option value="NoSeleccionado"></option>
@@ -898,7 +964,9 @@
                                             <div class="row">&nbsp;</div>
                                             <div class="row">&nbsp;</div>
                                             <div class="row">
-                                                <div class="col-md-2"><button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#guardarRec"><spam class="glyphicon glyphicon-plus-sign"></spam> Guardar</button>
+                                                <div class="col-md-2">
+                                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#guardarRec">
+                                                        <spam class="glyphicon glyphicon-plus-sign"></spam> Guardar</button>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <button type="button" class="btn btn-default btn-lg"> Cancelar</button>
@@ -913,10 +981,10 @@
                             </div>
                             <div id="usuarioHistorial" class="tab-pane">
                                 <div class="container-fluid">
-								    <div class="row">
+                                    <div class="row">
                                         <h1>Historial</h1>
                                         <p>A continuacion se lista el historial de recetas del usuario</p>
-								    </div>
+                                    </div>
                                     <div class="row">&nbsp;</div>
                                     <div class="row">&nbsp;</div>
                                     <div class="row">
@@ -943,7 +1011,7 @@
                                         </div>
                                         <div class="col-md-2"> 17/03/2014 13:42:44
                                         </div>
-								    </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-1">
                                             <a href="#merienda" data-toggle="pill"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
@@ -954,7 +1022,7 @@
                                         </div>
                                         <div class="col-md-2"> 17/03/2014 13:42:20
                                         </div>
-								    </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-1">
                                             <a href="#desayuno" data-toggle="pill"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
@@ -965,7 +1033,7 @@
                                         </div>
                                         <div class="col-md-2"> 17/03/2014 13:42:44
                                         </div>
-								    </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-1">
                                             <a href="#cena" data-toggle="pill"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
@@ -976,8 +1044,8 @@
                                         </div>
                                         <div class="col-md-2"> 17/03/2014 13:42:44
                                         </div>
-								    </div>
-								</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

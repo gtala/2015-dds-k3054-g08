@@ -6,14 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script>
+        var usuarios = [
+            {
+                username: "admin",
+                email: "admin@utn.com",
+                password: "admin"
+            },
+            {
+                username: "usuario",
+                email: "usuario@gmail.com",
+                password: "123456"
+            }
+        ];
+        $(document).ready(function () {
+            $("#btnIngressar").click(function () {
+
+                loginOk = false;
+                mail = $("#inputEmail").val();
+                pass = $("#inputPassword").val();
+
+                $.each(usuarios, function (key, usuario) {
+                    if ((mail.toUpperCase() == usuario.email.toUpperCase()) && (pass == usuario.password)) {
+                        loginOk = true;
+                        window.location.href = 'front.html?username=' + usuario.username;
+                    }
+                });
+
+                if (!loginOk) {
+                  //  alert("Usuario y/o password incorrectos.");
+                }
+
+            });
+        });
+    </script>
 </head>
 
 <body>
 
     <div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
-            <a class="navbar-brand" rel="home" href="#" title="nutriweb">
-                <img style="max-width:100px; margin-top: -13px;" class="pull-left" src="img/logo.gif">
+            <a class="navbar-brand" rel="home" href="#" title="nutriweb" style="margin-left: -60px;">
+                <img style="max-width:100px; margin-top: -13px;" class="pull-left" src="img/Cooking-icon%20(1).png">&nbsp;Nutriweb
             </a>
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                 <span class="icon-bar"></span>
@@ -54,8 +89,8 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                    <a href="front.html" class="btn btn-primary">Ingresar
-</a>
+                    <div id="btnIngressar"><a class="btn btn-primary"  data-toggle="modal" data-target="#credencialesInvalidas">Ingresar</a>
+                    </div>
                     <div>
                         <a href="#" class="btn-link pull-right">Registrarse</a>
                     </div>
@@ -64,6 +99,24 @@
             </div>
         </fieldset>
     </form>
+    
+    <div class="modal fade" id="credencialesInvalidas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content panel-warning">
+                <div class="modal-header alert-danger">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Ingreso incorrecto</h4>
+                </div>
+                <div class="modal-body">
+                    Usuario y/o password incorrectos
+                </div>
+                <div class="modal-footer">
+                    <a href="#tab_f" data-toggle="pill" class="btn btn-primary " data-dismiss="modal">Aceptar</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="navbar navbar-default navbar-fixed-bottom">
         <div class="conteiner">
             <p class="navbar-text pull-left">
