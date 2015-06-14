@@ -1,6 +1,6 @@
 package clases;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -71,7 +71,9 @@ public class ValidacionesTest {
     	int x = -7;
     	Calendar cal = GregorianCalendar.getInstance();
     	cal.add( Calendar.DAY_OF_YEAR, x);
-    	Date daysAgo = cal.getTime();
+    	java.util.Date daysAgoTemp = cal.getTime();
+    	@SuppressWarnings("deprecation")
+		LocalDate daysAgo = LocalDate.of(daysAgoTemp.getYear(), daysAgoTemp.getMonth(), daysAgoTemp.getDay());
     	
     	boolean valid = Validaciones.validateDate(daysAgo);
 

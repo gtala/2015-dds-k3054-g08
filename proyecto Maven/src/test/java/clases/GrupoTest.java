@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -82,12 +82,12 @@ public class GrupoTest {
 	
 	public void setUsuarioTest() {
 		final List<String> listadoIngredientes  = Arrays.asList(ingredienteA, ingredienteB);
-		final Date today = new Date();
+		final LocalDate today = LocalDate.now();
 		Receta unaReceta;
 		final LinkedList<Receta> nuevaListaRecetas = new LinkedList<Receta> ();
 		
 		this.usuarioTest   = new Usuario().crearUsuario(emailtest,nombretest,edadtest,dietatest,alturatest,complexiontest,sexotest,precondiciontest,rutinatest);
-		unaReceta  = new Receta().crearReceta(this.usuarioTest, horarioReceta, today, listadoIngredientes);
+		unaReceta  = new Receta().crearReceta(this.usuarioTest, horarioReceta, today, listadoIngredientes, "Huevo con pollo?");
 		nuevaListaRecetas.add(unaReceta);
 		this.usuarioTest.setRecetas(nuevaListaRecetas);
 	}

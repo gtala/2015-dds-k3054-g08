@@ -2,8 +2,8 @@ package clases;
 
 import static org.junit.Assert.*;
 
+import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -82,10 +82,10 @@ public class UsuarioTest {
 		
 		final LinkedList <Receta> nuevaListaRecetas;
 		final List<String> listadoIngredientes  = Arrays.asList(ingredienteA, ingredienteB, ingredienteC, ingredienteD);
-		final Date today = new Date();
+		final LocalDate today = LocalDate.now();
 
 		this.unobjeto   = new Usuario().crearUsuario(emailtest,nombretest,edadtest,dietatest,alturatest,complexiontest,sexotest,precondiciontest,rutinatest);
-		this.unaReceta  = new Receta().crearReceta(this.unobjeto, horarioReceta, today, listadoIngredientes);
+		this.unaReceta  = new Receta().crearReceta(this.unobjeto, horarioReceta, today, listadoIngredientes, "Desayuno con Mirta");
 		
 		nuevaListaRecetas = this.unaReceta.planificarReceta(this.unobjeto.getRecetas(), this.unobjeto.getPrecondicion(), today, horarioPlan);
 		

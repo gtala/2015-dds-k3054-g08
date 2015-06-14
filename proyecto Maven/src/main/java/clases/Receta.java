@@ -1,18 +1,23 @@
 package clases;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.LinkedList;
 
 public class Receta {
 
 	private Usuario      creador;
-	private Date         fecha;
+	private LocalDate         fecha;
 	private String       horario;
 	private List<String> ingredientes;
 	private boolean		 compartida;
+	private List<Calificacion> calificaciones;
+	private String nombre;
+	private String procedimiento;
+	private int dificultad;
+	private int calorias;
 
-	public Receta crearReceta (Usuario unCreador, String unHorario, Date unaFecha, List <String> listaIng){
+	public Receta crearReceta (Usuario unCreador, String unHorario, LocalDate unaFecha, List <String> listaIng, String unNombre){
 		final Receta nuevaReceta;
 		nuevaReceta = new Receta();
 		nuevaReceta.setCreador(unCreador);
@@ -20,11 +25,12 @@ public class Receta {
 		nuevaReceta.setFecha(unaFecha);
 		nuevaReceta.setIngredientes(listaIng);
 		nuevaReceta.setCompartida(false);
+		nuevaReceta.setNombre(unNombre);
 		return nuevaReceta;
 	}
 	
 	
-	public LinkedList <Receta> planificarReceta (LinkedList <Receta> recetasUsuario, String precondicionUsuario, Date fechaPlanificacion, String horarioPlanificacion){
+	public LinkedList <Receta> planificarReceta (LinkedList <Receta> recetasUsuario, String precondicionUsuario, LocalDate fechaPlanificacion, String horarioPlanificacion){
 		
 		boolean horarioValido;
 		boolean recetaValida;
@@ -47,8 +53,8 @@ public class Receta {
 			return recetasUsuario;
 		}
 		else {
-			
-			return this.agregarRecetaAListado(recetasUsuario);
+			//uso un clon de la receta en este momento, por si la receta original cambia/se elimina
+			return this.clone().agregarRecetaAListado(recetasUsuario);
 		}
 	}
 	
@@ -103,6 +109,44 @@ public class Receta {
 		return true;
 	}
 	
+	public boolean validarCalificacion(Calificacion unaCal) {
+		for (Calificacion c : calificaciones) {
+			if (c.getCalificador() == unaCal.getCalificador()) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	public void nuevaCalificacion(Calificacion unaCal) {
+		if (calificaciones == null) {
+			List<Calificacion> temp = new LinkedList<Calificacion>();
+			calificaciones = temp;
+		}
+		if (validarCalificacion(unaCal)) {
+			calificaciones.add(unaCal);
+		}
+	}
+	
+	public int getCalificacionPromedio(Grupo unGrupo) {
+		int total = 0;
+		int count = 0;
+		
+		for (Calificacion c : calificaciones) {
+			if (c.getGrupo() == unGrupo) {
+				count++;
+				total += c.getPuntaje();
+			}
+		}
+		
+		return (total / count);
+	}
+	
+	public void setNombre(String unNombre) {
+		nombre = unNombre;
+	}
+	
 	public void setCompartida(boolean unBool) {
 		this.compartida = unBool;
 	}
@@ -123,15 +167,19 @@ public class Receta {
 		this.ingredientes = listadoIngredientes;
 	}
 	
-	public void setFecha (Date unaFecha){
+	public void setFecha (LocalDate unaFecha){
 		this.fecha = unaFecha;
+	}
+	
+	public String getNombre() {
+		return nombre;
 	}
 	
 	public Usuario getCreador(){
 		return creador;
 	}
 	
-	public Date getFecha(){
+	public LocalDate getFecha(){
 		return fecha;
 	}
 	
@@ -143,8 +191,44 @@ public class Receta {
 		return this.ingredientes;
 	}
 	
+	public String getProcedimiento() {
+		return procedimiento;
+	}
+
+
+	public void setProcedimiento(String procedimiento) {
+		this.procedimiento = procedimiento;
+	}
+
+
+	public int getDificultad() {
+		return dificultad;
+	}
+
+
+	public void setDificultad(int dificultad) {
+		this.dificultad = dificultad;
+	}
+
+
+	public int getCalorias() {
+		return calorias;
+	}
+
+
+	public void setCalorias(int calorias) {
+		this.calorias = calorias;
+	}
+
+
 	public void imprimirDetalles (){
 		System.out.println();
+	}
+	
+	public Receta clone() {
+		//si la clono para "Crear a partir de..." simplemente cambio nombre y creador para poder agregarla al RepositorioRecetas
+		Receta r = crearReceta(creador, horario, fecha, ingredientes, nombre);
+		return r;
 	}
 	
 	@Override
@@ -162,7 +246,11 @@ public class Receta {
 		if (!horario.equals(other.horario)){
 			return false;
 		}
+		if (!(this.nombre == other.getNombre())){
+			return false;
+		}
 		return true;
 	}
+	
 
 }

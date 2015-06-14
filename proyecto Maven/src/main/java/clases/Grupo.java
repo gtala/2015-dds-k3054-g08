@@ -1,5 +1,6 @@
 package clases;
 
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class Grupo {
@@ -28,6 +29,13 @@ public class Grupo {
 			}
 		}
 		
+		return unListado;
+	}
+	
+	public LinkedList<Receta> rankingRecetas() {
+		LinkedList<Receta> unListado = new LinkedList<Receta>();
+		RecetaComparator comparador = new RecetaComparator(this);
+		Collections.sort(unListado, comparador);
 		return unListado;
 	}
 	

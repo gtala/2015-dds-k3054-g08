@@ -1,7 +1,7 @@
 package clases;
+import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.Date;
 
 public class Validaciones {
 	private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
@@ -24,10 +24,10 @@ public class Validaciones {
         return matcher.matches();
  
     }
-    public static boolean validateDate(Date unaFecha) {
+    public static boolean validateDate(LocalDate unaFecha) {
     	 
-    	Date today = new Date();
-    	long diff = (today.getTime() - unaFecha.getTime()) / (1000 * 60 * 60 * 24);
+    	LocalDate today = LocalDate.now();
+    	long diff = ((today.compareTo(unaFecha)) / (1000 * 60 * 60 * 24));
     	
     	if (diff > 7){
     		return false;
