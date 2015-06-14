@@ -49,22 +49,33 @@
                 </li>
                 <li data-toggle="collapse" data-target="#comidas" class="collapsed">
                     <a href="#">Planificar comidas <span class="caret"></span></a>
-                </li>
+                </li>    
                 <ul id="comidas" class="collapse list-unstyled">
-                    <li><a href="#tab_a" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Desayuno</a>
+                    <li><a href="#desayuno" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Desayuno</a>
                     </li>
-                    <li><a href="#tab_b" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Almuerzo</a>
+                    <li><a href="#almuerzo" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Almuerzo</a>
                     </li>
-                    <li><a href="#tab_c" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Merienda</a>
+                    <li><a href="#merienda" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Merienda</a>
                     </li>
-                    <li><a href="#tab_d" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Cena</a>
+                    <li><a href="#cena" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Cena</a>
                 </ul>
-                <li >
-                    <a href="#">Recetas</a>
+                <li data-toggle="collapse" data-target="#men_recetas" class="collapsed">
+                    <a href="#">Recetas <span class="caret"></span></a>
                 </li>
-                <li >
-                    <a href="#">Cuenta</a>
+                <ul id="men_recetas" class="collapse list-unstyled">
+                    <li><a href="#recetaNueva" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Crear nueva receta</a>
+                    </li>
+                    <li><a href="#receteCopia" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Crear a partir de receta</a></li>
+                </ul>
+                <li data-toggle="tab" data-target="#men_user" class="collapsed">
+                    <a href="#">Cuenta <span class="caret"></span></a>
                 </li>
+                <ul id="men_user" class="collapse list-unstyled">
+                    <li><a href="#usuarioHistorial" data-toggle="pill"><span class="glyphicon glyphicon-triangle-right"></span> Ver historial</a>
+                    </li>
+                    <li><a href="#usuarioDesconectar" data-toggle="pill"><span class="glyphicon glyphicon-off"></span> Desconectar</a>
+                    </li>
+                </ul>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -78,7 +89,7 @@
                     <div class="col-lg-12">
 
                         <div class="tab-content">
-                            <div class="tab-pane" id="tab_a">
+                            <div class="tab-pane" id="desayuno">
                                 <h1>Desayuno</h1>
                                 <p>Por favor seleccione alguna de las siguientes recetas para planificar su comida.</p>
                                 <div class="panel-group" id="accordion-desayuno">
@@ -199,7 +210,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tab_b">
+                            <div class="tab-pane" id="almuerzo">
                                 <h1>Almuerzo</h1>
                                 <p>Por favor seleccione alguna de las siguientes recetas para planificar su comida.</p>
                                 <div class="panel-group" id="accordion-almuerzo">
@@ -320,7 +331,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tab_c">
+                            <div class="tab-pane" id="merienda">
                                 <h1>Merienda</h1>
                                 <p>Por favor seleccione alguna de las siguientes recetas para planificar su comida.</p>
                                 <div class="panel-group" id="accordion-merienda">
@@ -441,7 +452,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tab_d">
+                            <div class="tab-pane" id="cena">
                                 <h1>Cena</h1>
                                 <p>Por favor seleccione alguna de las siguientes recetas para planificar su comida.</p>
                                 <div class="panel-group" id="accordion-cena">
@@ -579,6 +590,395 @@
 
                                 </div>
                             </div>
+                           <!-- /# INICIO CAMBIOS DANDINO -->
+                           <div id="guardar" class="tab-pane">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="img/Green%20Tick.png" width="100%">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="jumbotron">
+                                            <h2>
+                                    ¡La receta se guardo correctamente!
+                                    </h2>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="eliminar" class="tab-pane">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="img/Green%20Tick.png" width="100%">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="jumbotron">
+                                            <h2>
+                                    ¡La receta se elimino correctamente!
+                                    </h2>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="recetaNueva" class="tab-pane">
+                                <div class="container-fluid">
+                                    <div class=row>
+                                        <h1>Crear nueva receta</h1>
+                                        <p><font color="red">*</font> Indica que el campo es obligatorio</p>
+                                        <table>
+                                             <div class="row">
+                                                <div class="col-md-2"><p>Nombre <font color="red">*</font></p></div>
+                                                <div class="col-md-2"><input type="text" class="form-control" placeholder="Ingrese nombre"></div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2">Ingredientes <font color="red">*</font></div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente1" value="opcion1"> Aceite
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente2" value="opcion2"> Huevo
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="checkbox" id="ingrediente3" value="opcion3"> Queso
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">&nbsp;</div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente4" value="opcion4"> Agua
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente5" value="opcion5"> Sal
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="checkbox" id="ingrediente6" value="opcion6"> Azucar
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">&nbsp;</div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente7" value="opcion7"> Carne
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente8" value="opcion8"> Ajo
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="checkbox" id="ingrediente9" value="opcion9"> Harina
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">&nbsp;</div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente10" value="opcion10"> Pollo
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente11" value="opcion11"> Cerdo
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="checkbox" id="ingrediente12" value="opcion12"> Cebolla
+                                                </div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2">Procedimiento <font color="red">*</font></div>
+                                                <div class="col-md-5"><textarea class="form-control" placeholder="Ingrese procedimiento" rows="4"></textarea></div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2">Dificultad receta <font color="red">*</font></div>
+                                                <div class="col-md-2">
+                                                    <select class="form-control">
+                                                            <option value="NoSeleccionado"></option>
+                                                            <option value="1Punto">* (Facil)</option>
+                                                            <option value="2Puntos">** (Media)</option>
+                                                            <option value="3Puntos">*** (Dificil)</option>
+                                                            <option value="4Puntos">**** (Muy dificl)</option>
+                                                            <option value="5Puntos">***** (Experto)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2">Temporada recetario <font color="red">*</font></div>
+                                                <div class="col-md-2"><input type="text" class="form-control" placeholder="Ingrese temporada"></div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2"><p>Calorias total<font color="red">*</font></p></div>
+                                                <div class="col-md-2"><input type="text" class="form-control" placeholder="Ingrese calorias"></div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2">Filtros de búsqueda <font color="red">*</font></div>
+                                                <div class="col-md-5"><textarea class="form-control" placeholder="Ingrese filtros" rows="2"></textarea></div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2">Rango calorias <font color="red">*</font></div>
+                                                <div class="col-md-2">
+                                                    <select class="form-control">
+                                                            <option value="NoSeleccionado"></option>
+                                                            <option value="Nivel1">0-100</option>
+                                                            <option value="Nivel2">100-500</option>
+                                                            <option value="Nivel3">500-1000</option>
+                                                            <option value="Nivel4">1000-1500</option>
+                                                            <option value="Nivel5">Más de 1500</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2"> <p>Grupo de Alimento <font color="red">*</font></p></div>
+                                                <div class="col-md-2">
+                                                    <select class="form-control">
+                                                        <option value="NoSeleccionado"></option>
+                                                        <option value="Nivel1">0-100</option>
+                                                        <option value="Nivel2">100-500</option>
+                                                        <option value="Nivel3">500-1000</option>
+                                                        <option value="Nivel4">1000-1500</option>
+                                                        <option value="Nivel5">Más de 1500</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </table>
+                                        <table>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2"><button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#guardarRec"><spam class="glyphicon glyphicon-plus-sign"></spam> Guardar</button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" class="btn btn-default btn-lg"> Cancelar</button>
+                                                </div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">&nbsp;</div>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="receteCopia" class="tab-pane">
+                                <div class="container-fluid">
+                                    <div class=row>
+                                        <h1>Crear nueva receta</h1>
+                                        <p>Los campos no ingresados se hereadaran de la receta elegida</p>
+                                        <p><font color="red">*</font> Indica que el campo es obligatorio</p>
+                                        <table>
+                                             <div class="row">
+                                                <div class="col-md-2"><p>Nombre <font color="red">*</font></p></div>
+                                                <div class="col-md-3">
+                                                <select class="form-control">
+                                                    <option value="NoSeleccionado">-- SELECCIONAR RECETA --</option>
+                                                    <option value="Omelettes">Omelettes</option>
+                                                    <option value="Waffles">Waffles</option>
+                                                    <option value="BAP">Bife a la parrilla</option>
+                                                </select>
+                                            </div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2">Ingredientes <font color="red">*</font></div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente1" value="opcion1"> Aceite
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente2" value="opcion2"> Huevo
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="checkbox" id="ingrediente3" value="opcion3"> Queso
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">&nbsp;</div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente4" value="opcion4"> Agua
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente5" value="opcion5"> Sal
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="checkbox" id="ingrediente6" value="opcion6"> Azucar
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">&nbsp;</div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente7" value="opcion7"> Carne
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente8" value="opcion8"> Ajo
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="checkbox" id="ingrediente9" value="opcion9"> Harina
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">&nbsp;</div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente10" value="opcion10"> Pollo
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="checkbox" id="ingrediente11" value="opcion11"> Cerdo
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="checkbox" id="ingrediente12" value="opcion12"> Cebolla
+                                                </div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2">Procedimiento <font color="red">*</font></div>
+                                                <div class="col-md-5"><textarea class="form-control" placeholder="Ingrese procedimiento" rows="4"></textarea></div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2">Dificultad receta <font color="red">*</font></div>
+                                                <div class="col-md-2">
+                                                    <select class="form-control">
+                                                            <option value="NoSeleccionado"></option>
+                                                            <option value="1Punto">* (Facil)</option>
+                                                            <option value="2Puntos">** (Media)</option>
+                                                            <option value="3Puntos">*** (Dificil)</option>
+                                                            <option value="4Puntos">**** (Muy dificl)</option>
+                                                            <option value="5Puntos">***** (Experto)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2">Temporada recetario <font color="red">*</font></div>
+                                                <div class="col-md-2"><input type="text" class="form-control" placeholder="Ingrese temporada"></div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2"><p>Calorias total<font color="red">*</font></p></div>
+                                                <div class="col-md-2"><input type="text" class="form-control" placeholder="Ingrese calorias"></div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2">Filtros de búsqueda <font color="red">*</font></div>
+                                                <div class="col-md-5"><textarea class="form-control" placeholder="Ingrese filtros" rows="2"></textarea></div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2">Rango calorias <font color="red">*</font></div>
+                                                <div class="col-md-2">
+                                                    <select class="form-control">
+                                                            <option value="NoSeleccionado"></option>
+                                                            <option value="Nivel1">0-100</option>
+                                                            <option value="Nivel2">100-500</option>
+                                                            <option value="Nivel3">500-1000</option>
+                                                            <option value="Nivel4">1000-1500</option>
+                                                            <option value="Nivel5">Más de 1500</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2"> <p>Grupo de Alimento <font color="red">*</font></p></div>
+                                                <div class="col-md-2">
+                                                    <select class="form-control">
+                                                        <option value="NoSeleccionado"></option>
+                                                        <option value="Nivel1">0-100</option>
+                                                        <option value="Nivel2">100-500</option>
+                                                        <option value="Nivel3">500-1000</option>
+                                                        <option value="Nivel4">1000-1500</option>
+                                                        <option value="Nivel5">Más de 1500</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </table>
+                                        <table>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">
+                                                <div class="col-md-2"><button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#guardarRec"><spam class="glyphicon glyphicon-plus-sign"></spam> Guardar</button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" class="btn btn-default btn-lg"> Cancelar</button>
+                                                </div>
+                                            </div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">&nbsp;</div>
+                                            <div class="row">&nbsp;</div>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="usuarioHistorial" class="tab-pane">
+                                <div class="container-fluid">
+								    <div class="row">
+                                        <h1>Historial</h1>
+                                        <p>A continuacion se lista el historial de recetas del usuario</p>
+								    </div>
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <strong>Ver</strong>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <strong>Tipo</strong>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <strong>Receta</strong>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <strong>Fecha creacion</strong>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <a href="#desayuno" data-toggle="pill"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                        </div>
+                                        <div class="col-md-1"> Desayuno
+                                        </div>
+                                        <div class="col-md-2"> Omellete
+                                        </div>
+                                        <div class="col-md-2"> 17/03/2014 13:42:44
+                                        </div>
+								    </div>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <a href="#merienda" data-toggle="pill"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                        </div>
+                                        <div class="col-md-1"> Merienda
+                                        </div>
+                                        <div class="col-md-2"> Waffles
+                                        </div>
+                                        <div class="col-md-2"> 17/03/2014 13:42:20
+                                        </div>
+								    </div>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <a href="#desayuno" data-toggle="pill"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                        </div>
+                                        <div class="col-md-1"> Desayuno
+                                        </div>
+                                        <div class="col-md-2"> Waffles
+                                        </div>
+                                        <div class="col-md-2"> 17/03/2014 13:42:44
+                                        </div>
+								    </div>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <a href="#cena" data-toggle="pill"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                        </div>
+                                        <div class="col-md-1"> Cena
+                                        </div>
+                                        <div class="col-md-2"> Bife a la parrilla
+                                        </div>
+                                        <div class="col-md-2"> 17/03/2014 13:42:44
+                                        </div>
+								    </div>
+								</div>
+                            </div>
                         </div>
 
                     </div>
@@ -608,7 +1008,24 @@
             </div>
         </div>
     </div>
-
+    <div class="modal fade" id="guardarRec" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-header-success">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Guardar receta</h4>
+                </div>
+                <div class="modal-body">
+                    ¿Esta seguro que desea guardar esta receta?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <a href="#guardar" data-toggle="pill" class="btn btn-primary " data-dismiss="modal">Guardar</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="navbar navbar-default navbar-fixed-bottom">
         <div class="conteiner">
             <p class="navbar-text pull-left">
